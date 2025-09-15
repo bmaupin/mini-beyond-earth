@@ -1,5 +1,5 @@
 {
-  // Prevent the Lua extension form scanning the entire workspace
+  // Make it so that the Lua extension only diagnoses the currently open file instead of the entire workspace
   "Lua.workspace.maxPreload": 0,
   "Lua.diagnostics.globals": [
     "CommandTypes",

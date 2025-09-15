@@ -14,7 +14,11 @@ if [[ -f "/home/$USER/.steam/steam/steamapps/common/Sid Meier's Civilization Bey
     user_directory="/home/${USER}/.steam/steam/steamapps/compatdata/65980/pfx/drive_c/users/steamuser/Documents/My Games/Sid Meier's Civilization Beyond Earth"
 fi
 
+echo "Extracting mod files ..."
+temp_dir=$(mktemp -d -p $(pwd))
+7z x "${mod_name_version}.civbemod" -o"${temp_dir}"
+
 echo "Copying mod files ..."
 mod_directory="${user_directory}/MODS/${mod_name_version}"
-rm -rf "${mod_directory}"/*
-7z x "${mod_name_version}.civbemod" -o"${mod_directory}"
+rm -rf "${mod_directory}"
+mv "${temp_dir}" "${mod_directory}"

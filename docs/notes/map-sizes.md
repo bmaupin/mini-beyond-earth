@@ -3,8 +3,7 @@
 #### Get maps that have hard-coded sizes
 
 ```
-$ find . -iname "*.lua" -exec sh -c "grep -H GetMapInitData -A 10 \"{}\" | grep 'GameInfo.Worlds.WORLDSIZE_DU
-EL.ID] = {'" \; | sort
+$ find . -iname "*.lua" -exec sh -c "grep -H GetMapInitData -A 10 \"{}\" | grep 'GameInfo.Worlds.WORLDSIZE_DUEL.ID] = {'" \; | sort
 ./steamassets/assets/dlc/dlc_sp_maps/maps/tiltedaxis.lua-               [GameInfo.Worlds.WORLDSIZE_DUEL.ID] = {52, 32},
 ./steamassets/assets/dlc/dlc_sp_maps/maps/vulcan.lua-           [GameInfo.Worlds.WORLDSIZE_DUEL.ID] = {28, 20},
 ./steamassets/assets/dlc/expansion1/maps/ice_age.lua-           [GameInfo.Worlds.WORLDSIZE_DUEL.ID] = {44, 18},

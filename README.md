@@ -139,10 +139,8 @@ Download the repository source file from [Releases](https://github.com/bmaupin/m
 Or:
 
 1. Go to [Releases](https://github.com/bmaupin/mini-beyond-earth/releases) and download the `.civbemod` file
-1. Get the version of the mod from [src/Mini Beyond Earth.modinfo](src/Mini%20Beyond%20Earth.modinfo)
-   - It's add the end of the `Mod` element, e.g. `version="1"`
 1. Create a new directory named `Mini Beyond Earth (v 1)`
-   - 👉 Update the value after `(v ` with the version from the previous step
+   - 👉 Update the value after `(v ` with the version from the filename
 1. Extract the contents of the `.civbemod` file to the directory you created (it's compressed using 7zip)
 1. Move the directory to the mods directory
    - Native: ~/.local/share/aspyr-media/Sid Meier's Civilization Beyond Earth/MODS/
