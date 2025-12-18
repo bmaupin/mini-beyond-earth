@@ -1,0 +1,4 @@
+-- TODO: Does this work? There's also CRAMPED_USABLE_PLOT_PERCENT
+UPDATE Defines
+SET Value = 0
+WHERE Name = 'CRAMPED_RANGE_FROM_CITY';
