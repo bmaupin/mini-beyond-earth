@@ -14,18 +14,6 @@
             </Set>
         </Update>
         <Update>
-            <Where Type="GAMEOPTION_LOCK_MODS" />
-            <Set>
-                <Visible>1</Visible>
-            </Set>
-        </Update>
-        <Update>
-            <Where Type="GAMEOPTION_NO_CHANGING_WAR_PEACE" />
-            <Set>
-                <Visible>1</Visible>
-            </Set>
-        </Update>
-        <Update>
             <Where Type="GAMEOPTION_NO_HEALTH" />
             <Set>
                 <Visible>1</Visible>
@@ -33,12 +21,6 @@
         </Update>
         <Update>
             <Where Type="GAMEOPTION_NO_POLICIES" />
-            <Set>
-                <Visible>1</Visible>
-            </Set>
-        </Update>
-        <Update>
-            <Where Type="GAMEOPTION_NO_SCIENCE" />
             <Set>
                 <Visible>1</Visible>
             </Set>

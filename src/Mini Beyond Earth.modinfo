@@ -35,7 +35,7 @@
     <File md5="9a387e24a6267dfdc349c2df1837e732" import="0">Lua/Mini_Beyond_Earth.lua</File>
     <File md5="31088649bf7502810d3ad6c76f05e702" import="0">Lua/VictoriesAutomatedExodusGate.lua</File>
     <File md5="da66f65e75a5482418d208abb232490c" import="0">SQL/GameSpeeds.sql</File>
-    <File md5="4c14b5f0509d6740dd572ac879c63062" import="1">XML/Mini_Beyond_Earth.xml</File>
+    <File md5="ca24a429ab4ec6b6be957e41accfccf4" import="1">XML/Mini_Beyond_Earth.xml</File>
   </Files>
   <Actions>
     <OnModActivated>
