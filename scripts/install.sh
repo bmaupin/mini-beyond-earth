@@ -1,7 +1,13 @@
 #!/usr/bin/env bash
 
-# Build the mod package file
-source "$(dirname "$(which "$0")")/package-mod.sh"
+# Exit if not running under bash
+if [ -z "$BASH_VERSION" ]; then
+    echo "This script must be run with bash" >&2
+    exit 1
+fi
+
+# Build the mod in a temporary directory
+source "$(dirname "$(which "$0")")/build.sh"
 
 mod_name_version="$(echo "${mod_name} (v ${mod_version})" | tr '[:upper:]' '[:lower:]')"
 
@@ -14,7 +20,15 @@ if [[ -f "/home/$USER/.steam/steam/steamapps/common/Sid Meier's Civilization Bey
     user_directory="/home/${USER}/.steam/steam/steamapps/compatdata/65980/pfx/drive_c/users/steamuser/Documents/My Games/Sid Meier's Civilization Beyond Earth"
 fi
 
+# Inject the current timestamp into the mod teaser text. This makes it easier to tell if
+# the mod has been updated when doing development.
+sed -i "s|\(<Teaser>\)[^<]*\(</Teaser>\)|\1$(date)\2|" "${temp_dir}/${mod_name_version}.modinfo"
+
 echo "Copying mod files ..."
 mod_directory="${user_directory}/MODS/${mod_name_version}"
-rm -rf "${mod_directory}"/*
-7z x "${mod_name_version}.civbemod" -o"${mod_directory}"
+rm -rf "${mod_directory}"
+mv "${temp_dir}" "${mod_directory}"
+
+# This hack seems to be enough to signal to the game that there have been changes to mods 🤷‍♂️
+touch "${user_directory}/MODS/test"
+rm "${user_directory}/MODS/test"
