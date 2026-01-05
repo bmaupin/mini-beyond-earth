@@ -1,6 +1,6 @@
 # Publish to Steam workshop
 
-ⓘ See https://github.com/bmaupin/civ-modding-tools/blob/main/civilization-beyond-earth/docs/publishing.md
+ⓘ See https://github.com/bmaupin/civ-modding-tools/blob/main/beyond-earth/docs/publishing.md
 
 Sample command for publishing a new version of the mod:
 

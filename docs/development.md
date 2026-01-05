@@ -1,6 +1,6 @@
 # Development
 
-ⓘ See https://github.com/bmaupin/civ-modding-tools/blob/main/civilization-beyond-earth/docs/development.md
+ⓘ See https://github.com/bmaupin/civ-modding-tools/blob/main/beyond-earth/docs/development.md
 
 #### Avoid duel and dwarf map sizes
 
