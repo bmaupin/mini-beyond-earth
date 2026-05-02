@@ -149,6 +149,10 @@ Or:
 1. Go to [Releases](https://github.com/bmaupin/mini-beyond-earth/releases) and download the `.civbemod` file
 1. Copy it to Documents/My Games/Sid Meier's Civilization Beyond Earth/MODS
 
+## Compatibility with other mods
+
+In addition to making the game much shorter, the goal is for this mod to be compatible with other mods as much as possible. The only game files that have been overridden are the map scripts that have map size hard-coded.
+
 ## Credits
 
 - [Victories - Automated Exodus Gate](https://www.picknmixmods.com/mods/CivBE/Victories/Automated%20Exodus%20Gate.html) from [whoward69](https://forums.civfanatics.com/members/whoward69.210828/)
