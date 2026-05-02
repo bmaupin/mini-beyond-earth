@@ -29,7 +29,6 @@ I don't have time to play a 10-15 hour game of Civilization and short 4X games (
 1. Start Beyond Earth and go to the _Mods_ menu
 1. Check _Mini Beyond Earth_ and any other desired mods
 1. Before starting a game, click _Advanced Setup_ to configure additional game options, e.g
-
    - _Game Pace_ > _Quick_
    - _Auto Upgrade Units_
    - _Disable Covert Operations_
@@ -41,7 +40,6 @@ I don't have time to play a 10-15 hour game of Civilization and short 4X games (
    - _Workers Start Automated_
 
 1. After you start the game, go to the menu > _Options_ to see more options that can make the game go faster, e.g.
-
    - _Advisor Level_ > _No Advice_
    - _Disable Planetfall Visual Effect_
    - _Hide Advisor Intro_
@@ -103,7 +101,7 @@ The time victory condition can be disabled in the game options.
 
 If a previously-hidden game option is checked, buildings and wonders related to that option are disabled. For example, if health is disabled then buildings and wonders that only give health (e.g. Pharmalab, Soma Distillery) will not show in the list of available buildings to build.
 
-Similarly, if Disable Health is checked, health bonuses and maluses are disabled in the game and all players will automatically receive all health-related virtues at the beginning of the game.
+Similarly, if Disable Health is checked, health bonuses and maluses are disabled in the game and all players will automatically receive the Foresight virtue at the beginning of the game.
 
 ## Known issues
 

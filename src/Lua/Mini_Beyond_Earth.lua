@@ -190,9 +190,10 @@ function ResetHealth(playerID)
 end
 GameEvents.PlayerDoTurn.Add(ResetHealth);
 
--- If the Disable Health game option is checked, give all health-related policies to all
--- players to avoid them wasting a free policy on something that will have little to no
--- impact as well as to speed up gameplay
+-- If the Disable Health game option is checked, give the Foresight policy because it's
+-- the first one in the tree and can't be avoided. Previously we gave other
+-- health-related policies for free but then it allows policies depending on them to be
+-- unlocked without unlocking all prerequisites, even for the AI players.
 function GiveFreeHealthPolicies()
     if (PreGame.GetGameOption("GAMEOPTION_NO_HEALTH") ~= 1) then
         return;
@@ -203,19 +204,6 @@ function GiveFreeHealthPolicies()
 
         -- Apply the logic to human and computer players alike
         if player:IsMajorCiv() and player:IsAlive() then
-            -- Profiteering
-            -- NOTE: We're explitly not using player:CanAdoptPolicy() here because it will
-            -- only return true for the first policy in each branch because the
-            -- prerequisite policies haven't been unlocked yet
-            if not player:HasPolicy(GameInfo.Policies["POLICY_INDUSTRY_8"].ID) then
-                player:SetHasPolicy(GameInfo.Policies["POLICY_INDUSTRY_8"].ID, true);
-            end
-
-            -- Magnasanti
-            if not player:HasPolicy(GameInfo.Policies["POLICY_INDUSTRY_15"].ID) then
-                player:SetHasPolicy(GameInfo.Policies["POLICY_INDUSTRY_15"].ID, true);
-            end
-
             -- Foresight
             if not player:HasPolicy(GameInfo.Policies["POLICY_KNOWLEDGE_1"].ID) then
                 -- For some reason we have to unlock the policy branch first but only for the first policy in a branch
@@ -223,36 +211,6 @@ function GiveFreeHealthPolicies()
                     player:SetPolicyBranchUnlocked(GameInfo.PolicyBranchTypes["POLICY_BRANCH_KNOWLEDGE"].ID, true)
                 end
                 player:SetHasPolicy(GameInfo.Policies["POLICY_KNOWLEDGE_1"].ID, true);
-            end
-
-            -- Creative Class
-            if not player:HasPolicy(GameInfo.Policies["POLICY_KNOWLEDGE_5"].ID) then
-                player:SetHasPolicy(GameInfo.Policies["POLICY_KNOWLEDGE_5"].ID, true);
-            end
-
-            -- Community Medicine
-            if not player:HasPolicy(GameInfo.Policies["POLICY_KNOWLEDGE_8"].ID) then
-                player:SetHasPolicy(GameInfo.Policies["POLICY_KNOWLEDGE_8"].ID, true);
-            end
-
-            -- Public Security
-            if not player:HasPolicy(GameInfo.Policies["POLICY_MIGHT_6"].ID) then
-                player:SetHasPolicy(GameInfo.Policies["POLICY_MIGHT_6"].ID, true);
-            end
-
-            -- Mind Over Matter
-            if not player:HasPolicy(GameInfo.Policies["POLICY_PROSPERITY_10"].ID) then
-                player:SetHasPolicy(GameInfo.Policies["POLICY_PROSPERITY_10"].ID, true);
-            end
-
-            -- Joy From Variety
-            if not player:HasPolicy(GameInfo.Policies["POLICY_PROSPERITY_12"].ID) then
-                player:SetHasPolicy(GameInfo.Policies["POLICY_PROSPERITY_12"].ID, true);
-            end
-
-            -- Eudaimonia
-            if not player:HasPolicy(GameInfo.Policies["POLICY_PROSPERITY_15"].ID) then
-                player:SetHasPolicy(GameInfo.Policies["POLICY_PROSPERITY_15"].ID, true);
             end
         end
     end

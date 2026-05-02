@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Mod id="9412c9bf-a7b2-481e-b42e-431f06aac221" version="14">
+<Mod id="9412c9bf-a7b2-481e-b42e-431f06aac221" version="15">
   <Properties>
     <Name>Mini Beyond Earth</Name>
     <Stability>Alpha</Stability>
@@ -32,7 +32,7 @@
     <File md5="8f1eb87fdabeb92c64519fa71c700ebf" import="1">Assets/Maps/Inland_Sea.lua</File>
     <File md5="3bd1d358cc1f8353c6e213e232f29c1d" import="1">Assets/Maps/Skirmish.lua</File>
     <File md5="1d78e43069f24547e65a6e17c9601c58" import="0">Lua/AutomatedWarpGate.lua</File>
-    <File md5="9a387e24a6267dfdc349c2df1837e732" import="0">Lua/Mini_Beyond_Earth.lua</File>
+    <File md5="5d34f865c11832a36d4e6718b47a55b4" import="0">Lua/Mini_Beyond_Earth.lua</File>
     <File md5="31088649bf7502810d3ad6c76f05e702" import="0">Lua/VictoriesAutomatedExodusGate.lua</File>
     <File md5="c48d317a3c67db7f8ddb96b4372ce145" import="0">SQL/Defines.sql</File>
     <File md5="da66f65e75a5482418d208abb232490c" import="0">SQL/GameSpeeds.sql</File>
