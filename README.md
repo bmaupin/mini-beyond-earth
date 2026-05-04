@@ -115,12 +115,13 @@ The issue appears to occur more frequently with the smaller map sizes such as du
 
 #### Missing game features
 
-Because the map sizes are so drastically reduced, games will be very different. Depending on which map size is picked and how many other civs there are, some systems may not show up in the game at all, such as:
+Because the map sizes are so drastically reduced, games will be very different. Depending on which map size is picked and how many other civs there are, some systems may be drastically reduced or not show up in the game at all, such as:
 
 - Alien nests
 - Artifacts
 - Marvels
 - Stations
+- Strategic resources
 
 If you wish to improve your chances of these systems being in the game, try playing on a larger map with fewer civs.
 
