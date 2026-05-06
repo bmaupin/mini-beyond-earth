@@ -370,3 +370,34 @@ end
 if (PreGame.GetGameOption("GAMEOPTION_AUTO_UPGRADE_UNITS") == 1) then
     GameEvents.PlayerDoTurn.Add(AutoUpgradeUnits);
 end
+
+-- local function AutoPlay()
+--     local function GetTotalCityCount()
+--         local totalCities = 0;
+
+--         for playerID = 0, GameDefines.MAX_MAJOR_CIVS - 1 do
+--             local player = Players[playerID];
+--             if player ~= nil and player:IsEverAlive() then
+--                 totalCities = totalCities + player:GetNumCities();
+--             end
+--         end
+
+--         return totalCities;
+--     end;
+
+--     local function PrintNumberOfCities()
+--         if (Game.GetAIAutoPlay() == 0) then
+--             local totalCities = GetTotalCityCount();
+--             print("********************* City founded. Total cities:" .. tostring(totalCities) .. " turn:" .. tostring(Game.GetGameTurn()));
+
+--             GameEvents.PlayerDoTurn.Remove(PrintNumberOfCities);
+--         end
+--     end
+--     GameEvents.PlayerDoTurn.Add(PrintNumberOfCities);
+
+--     print("********************* AutoPlay()");
+--     -- First parameter is number of turns to autoplay, second is player to return control to (or -1 for none)
+--     Game.SetAIAutoPlay(200, 0);
+-- end
+-- -- Run this once at the start of the game
+-- Events.SequenceGameInitComplete.Add(AutoPlay);
