@@ -211,6 +211,74 @@ if (PreGame.GetGameOption("GAMEOPTION_NO_HEALTH") == 1) then
     Events.SequenceGameInitComplete.Add(GiveFreeForesightPolicy);
 end
 
+-- If the Disable Health game option is checked, every time a player gets a new policy
+-- check to see if they have met the prerequisites for any health-related policy and if
+-- so, give it to them for free. This helps avoid the cognitive overhead of having to
+-- mentally filter them out. Previously we gave all health-related policies for free at
+-- the beginning of the game but then it allows policies depending on them to be unlocked
+-- without unlocking all prerequisites, even for the AI players.
+function GiveFreeHealthPolicies(playerID, _policyID)
+    local player = Players[playerID];
+
+    -- Apply the logic to human and computer players alike
+    if player:IsMajorCiv() and player:IsAlive() then
+        -- Profiteering
+        -- player:CanAdoptPolicy() is used to make sure the player has the prerequisite
+        -- policies
+        if (not player:HasPolicy(GameInfo.Policies["POLICY_INDUSTRY_8"].ID) and
+            player:CanAdoptPolicy(GameInfo.Policies["POLICY_INDUSTRY_8"].ID)) then
+            player:SetHasPolicy(GameInfo.Policies["POLICY_INDUSTRY_8"].ID, true);
+        end
+
+        -- Magnasanti
+        if (not player:HasPolicy(GameInfo.Policies["POLICY_INDUSTRY_15"].ID) and
+            player:CanAdoptPolicy(GameInfo.Policies["POLICY_INDUSTRY_15"].ID)) then
+            player:SetHasPolicy(GameInfo.Policies["POLICY_INDUSTRY_15"].ID, true);
+        end
+
+        -- Creative Class
+        if (not player:HasPolicy(GameInfo.Policies["POLICY_KNOWLEDGE_5"].ID) and
+            player:CanAdoptPolicy(GameInfo.Policies["POLICY_KNOWLEDGE_5"].ID)) then
+            player:SetHasPolicy(GameInfo.Policies["POLICY_KNOWLEDGE_5"].ID, true);
+        end
+
+        -- Community Medicine
+        if (not player:HasPolicy(GameInfo.Policies["POLICY_KNOWLEDGE_8"].ID) and
+            player:CanAdoptPolicy(GameInfo.Policies["POLICY_KNOWLEDGE_8"].ID)) then
+            player:SetHasPolicy(GameInfo.Policies["POLICY_KNOWLEDGE_8"].ID, true);
+        end
+
+        -- Public Security
+        if (not player:HasPolicy(GameInfo.Policies["POLICY_MIGHT_6"].ID) and
+            player:CanAdoptPolicy(GameInfo.Policies["POLICY_MIGHT_6"].ID)) then
+            player:SetHasPolicy(GameInfo.Policies["POLICY_MIGHT_6"].ID, true);
+        end
+
+        -- Mind Over Matter
+        if (not player:HasPolicy(GameInfo.Policies["POLICY_PROSPERITY_10"].ID) and
+            player:CanAdoptPolicy(GameInfo.Policies["POLICY_PROSPERITY_10"].ID)) then
+            player:SetHasPolicy(GameInfo.Policies["POLICY_PROSPERITY_10"].ID, true);
+        end
+
+        -- Joy From Variety
+        if (not player:HasPolicy(GameInfo.Policies["POLICY_PROSPERITY_12"].ID) and
+            player:CanAdoptPolicy(GameInfo.Policies["POLICY_PROSPERITY_12"].ID)) then
+            player:SetHasPolicy(GameInfo.Policies["POLICY_PROSPERITY_12"].ID, true);
+        end
+
+        -- Eudaimonia
+        if (not player:HasPolicy(GameInfo.Policies["POLICY_PROSPERITY_15"].ID) and
+            player:CanAdoptPolicy(GameInfo.Policies["POLICY_PROSPERITY_15"].ID)) then
+            player:SetHasPolicy(GameInfo.Policies["POLICY_PROSPERITY_15"].ID, true);
+        end
+    end
+end
+if (PreGame.GetGameOption("GAMEOPTION_NO_HEALTH") == 1) then
+    -- Only run this each time a player adopts a new policy, in order to run it only when
+    -- needed
+    GameEvents.PlayerAdoptPolicy.Add(GiveFreeHealthPolicies);
+end
+
 -- If the Auto Upgrade Units option is checked, automatically upgrade units up to but not
 -- including the final tier for each unit
 -- NOTE: much of this code is from unitupgradepopup.lua
