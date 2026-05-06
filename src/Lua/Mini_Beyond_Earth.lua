@@ -1,9 +1,5 @@
 -- Abort all covert operations for all of the player's agents except for establish network
 function AbortCovertOperations(playerID)
-    if (PreGame.GetGameOption("GAMEOPTION_NO_COVERT_OPERATIONS") ~= 1) then
-        return;
-    end
-
     local player = Players[playerID];
 
     -- Apply the logic to human and computer players alike
@@ -26,7 +22,9 @@ function AbortCovertOperations(playerID)
         end
     end
 end
-GameEvents.PlayerDoTurn.Add(AbortCovertOperations);
+if (PreGame.GetGameOption("GAMEOPTION_NO_COVERT_OPERATIONS") == 1) then
+    GameEvents.PlayerDoTurn.Add(AbortCovertOperations);
+end
 
 function CanCityConstructBuilding(playerID, _, buildingID)
     local player = Players[playerID];
@@ -149,10 +147,6 @@ Events.SerialEventUnitCreated.Add(OnUnitCreated);
 -- disable bonuses or maluses from health, so extra logic is added here to effectively set
 -- each player's health to 0 (give or take).
 function ResetHealth(playerID)
-    if (PreGame.GetGameOption("GAMEOPTION_NO_HEALTH") ~= 1) then
-        return;
-    end
-
     local player = Players[playerID];
 
     -- Apply the logic to human and computer players alike
@@ -188,17 +182,14 @@ function ResetHealth(playerID)
         print("(Mini Beyond Earth) Adjusting health for player " .. playerID .. " (" .. player:GetName() .. ")" .. ", was: " .. totalHealth .. ", now: " .. newExcessHealth);
     end
 end
-GameEvents.PlayerDoTurn.Add(ResetHealth);
+if (PreGame.GetGameOption("GAMEOPTION_NO_HEALTH") == 1) then
+    GameEvents.PlayerDoTurn.Add(ResetHealth);
+end
 
 -- If the Disable Health game option is checked, give the Foresight policy because it's
--- the first one in the tree and can't be avoided. Previously we gave other
--- health-related policies for free but then it allows policies depending on them to be
--- unlocked without unlocking all prerequisites, even for the AI players.
-function GiveFreeHealthPolicies()
-    if (PreGame.GetGameOption("GAMEOPTION_NO_HEALTH") ~= 1) then
-        return;
-    end
-
+-- the first one in the tree and can't be avoided. See below for other free health-
+-- related policies.
+function GiveFreeForesightPolicy()
     for playerID = 0, GameDefines.MAX_CIV_PLAYERS - 1 do
         local player = Players[playerID];
 
@@ -215,17 +206,15 @@ function GiveFreeHealthPolicies()
         end
     end
 end
--- Run this once at the start of the game
-Events.SequenceGameInitComplete.Add(GiveFreeHealthPolicies);
+if (PreGame.GetGameOption("GAMEOPTION_NO_HEALTH") == 1) then
+    -- Run this once at the start of the game
+    Events.SequenceGameInitComplete.Add(GiveFreeForesightPolicy);
+end
 
 -- If the Auto Upgrade Units option is checked, automatically upgrade units up to but not
 -- including the final tier for each unit
 -- NOTE: much of this code is from unitupgradepopup.lua
 function AutoUpgradeUnits(playerID)
-    if (PreGame.GetGameOption("GAMEOPTION_AUTO_UPGRADE_UNITS") ~= 1) then
-        return;
-    end
-
     local player = Players[playerID];
 
     if not player:IsHuman() or not player:IsAlive() then
@@ -310,4 +299,6 @@ function AutoUpgradeUnits(playerID)
         end
     end
 end
-GameEvents.PlayerDoTurn.Add(AutoUpgradeUnits);
+if (PreGame.GetGameOption("GAMEOPTION_AUTO_UPGRADE_UNITS") == 1) then
+    GameEvents.PlayerDoTurn.Add(AutoUpgradeUnits);
+end
