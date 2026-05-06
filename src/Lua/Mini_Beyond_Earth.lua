@@ -218,57 +218,70 @@ end
 -- the beginning of the game but then it allows policies depending on them to be unlocked
 -- without unlocking all prerequisites, even for the AI players.
 function GiveFreeHealthPolicies(playerID, _policyID)
+    -- There's a player:CanAdoptPolicy method but unfortunately it only returns true if
+    -- policy prerequisites are met AND the player has enough points to get a new policy.
+    -- However we want to give the policy for free, so only check prerequisites.
+    local function PolicyPrereqsMet(playerID, policyID)
+        local player = Players[playerID];
+        for virtuePrereqData in GameInfo.Policy_PrereqORPolicies() do
+            if GameInfo.Policies[virtuePrereqData.PolicyType].ID == policyID then
+                if not player:HasPolicy(GameInfo.Policies[virtuePrereqData.PrereqPolicy].ID) then
+                    return false;
+                end
+            end
+        end
+        return true;
+    end
+
     local player = Players[playerID];
 
     -- Apply the logic to human and computer players alike
     if player:IsMajorCiv() and player:IsAlive() then
         -- Profiteering
-        -- player:CanAdoptPolicy() is used to make sure the player has the prerequisite
-        -- policies
         if (not player:HasPolicy(GameInfo.Policies["POLICY_INDUSTRY_8"].ID) and
-            player:CanAdoptPolicy(GameInfo.Policies["POLICY_INDUSTRY_8"].ID)) then
+            PolicyPrereqsMet(playerID, GameInfo.Policies["POLICY_INDUSTRY_8"].ID)) then
             player:SetHasPolicy(GameInfo.Policies["POLICY_INDUSTRY_8"].ID, true);
         end
 
         -- Magnasanti
         if (not player:HasPolicy(GameInfo.Policies["POLICY_INDUSTRY_15"].ID) and
-            player:CanAdoptPolicy(GameInfo.Policies["POLICY_INDUSTRY_15"].ID)) then
+            PolicyPrereqsMet(playerID, GameInfo.Policies["POLICY_INDUSTRY_15"].ID)) then
             player:SetHasPolicy(GameInfo.Policies["POLICY_INDUSTRY_15"].ID, true);
         end
 
         -- Creative Class
         if (not player:HasPolicy(GameInfo.Policies["POLICY_KNOWLEDGE_5"].ID) and
-            player:CanAdoptPolicy(GameInfo.Policies["POLICY_KNOWLEDGE_5"].ID)) then
+            PolicyPrereqsMet(playerID, GameInfo.Policies["POLICY_KNOWLEDGE_5"].ID)) then
             player:SetHasPolicy(GameInfo.Policies["POLICY_KNOWLEDGE_5"].ID, true);
         end
 
         -- Community Medicine
         if (not player:HasPolicy(GameInfo.Policies["POLICY_KNOWLEDGE_8"].ID) and
-            player:CanAdoptPolicy(GameInfo.Policies["POLICY_KNOWLEDGE_8"].ID)) then
+            PolicyPrereqsMet(playerID, GameInfo.Policies["POLICY_KNOWLEDGE_8"].ID)) then
             player:SetHasPolicy(GameInfo.Policies["POLICY_KNOWLEDGE_8"].ID, true);
         end
 
         -- Public Security
         if (not player:HasPolicy(GameInfo.Policies["POLICY_MIGHT_6"].ID) and
-            player:CanAdoptPolicy(GameInfo.Policies["POLICY_MIGHT_6"].ID)) then
+            PolicyPrereqsMet(playerID, GameInfo.Policies["POLICY_MIGHT_6"].ID)) then
             player:SetHasPolicy(GameInfo.Policies["POLICY_MIGHT_6"].ID, true);
         end
 
         -- Mind Over Matter
         if (not player:HasPolicy(GameInfo.Policies["POLICY_PROSPERITY_10"].ID) and
-            player:CanAdoptPolicy(GameInfo.Policies["POLICY_PROSPERITY_10"].ID)) then
+            PolicyPrereqsMet(playerID, GameInfo.Policies["POLICY_PROSPERITY_10"].ID)) then
             player:SetHasPolicy(GameInfo.Policies["POLICY_PROSPERITY_10"].ID, true);
         end
 
         -- Joy From Variety
         if (not player:HasPolicy(GameInfo.Policies["POLICY_PROSPERITY_12"].ID) and
-            player:CanAdoptPolicy(GameInfo.Policies["POLICY_PROSPERITY_12"].ID)) then
+            PolicyPrereqsMet(playerID, GameInfo.Policies["POLICY_PROSPERITY_12"].ID)) then
             player:SetHasPolicy(GameInfo.Policies["POLICY_PROSPERITY_12"].ID, true);
         end
 
         -- Eudaimonia
         if (not player:HasPolicy(GameInfo.Policies["POLICY_PROSPERITY_15"].ID) and
-            player:CanAdoptPolicy(GameInfo.Policies["POLICY_PROSPERITY_15"].ID)) then
+            PolicyPrereqsMet(playerID, GameInfo.Policies["POLICY_PROSPERITY_15"].ID)) then
             player:SetHasPolicy(GameInfo.Policies["POLICY_PROSPERITY_15"].ID, true);
         end
     end
@@ -371,6 +384,7 @@ if (PreGame.GetGameOption("GAMEOPTION_AUTO_UPGRADE_UNITS") == 1) then
     GameEvents.PlayerDoTurn.Add(AutoUpgradeUnits);
 end
 
+-- Uncomment as needed for testing
 -- local function AutoPlay()
 --     local function GetTotalCityCount()
 --         local totalCities = 0;

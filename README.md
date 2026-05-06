@@ -101,7 +101,7 @@ The time victory condition can be disabled in the game options.
 
 If a previously-hidden game option is checked, buildings and wonders related to that option are disabled. For example, if health is disabled then buildings and wonders that only give health (e.g. Pharmalab, Soma Distillery) will not show in the list of available buildings to build.
 
-Similarly, if Disable Health is checked, health bonuses and maluses are disabled in the game and all players will automatically receive the Foresight virtue at the beginning of the game.
+Similarly, if Disable Health is checked, health bonuses and maluses are disabled in the game. In addition, any time the prerequisites for a health-related virtue are met, the player will automatically receive that virtue.
 
 ## Known issues
 

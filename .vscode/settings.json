@@ -4,6 +4,7 @@
   "Lua.diagnostics.globals": [
     "CommandTypes",
     "Events",
+    "Game",
     "GameDefines",
     "GameEvents",
     "GameInfo",
