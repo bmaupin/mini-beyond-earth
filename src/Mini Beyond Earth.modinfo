@@ -24,13 +24,13 @@
   <!-- See here for more information about this section: https://forums.civfanatics.com/threads/file-attributes-properties-is-that-vfs-ingameuiaddin-or-updatedatabase.487846/ -->
   <Files>
     <!-- Mu Arae F -->
-    <File md5="ae47929e41bea3f64a45b7e7a7037d72" import="1">Assets/DLC/DLC_SP_Maps/Maps/TiltedAxis.lua</File>
+    <File md5="e0398720b187cedaee866fd594429b23" import="1">Assets/DLC/DLC_SP_Maps/Maps/TiltedAxis.lua</File>
     <!-- 82 Eridani e -->
-    <File md5="a689e6c945c0cef31bb19b361aaf8be4" import="1">Assets/DLC/DLC_SP_Maps/Maps/Vulcan.lua</File>
+    <File md5="66a5002d7ba04dcb48647a2facaf4ec9" import="1">Assets/DLC/DLC_SP_Maps/Maps/Vulcan.lua</File>
     <!-- Glacial -->
-    <File md5="1d413af252fd07922071b3a136079910" import="1">Assets/Maps/Ice_Age.lua</File>
-    <File md5="8f1eb87fdabeb92c64519fa71c700ebf" import="1">Assets/Maps/Inland_Sea.lua</File>
-    <File md5="3bd1d358cc1f8353c6e213e232f29c1d" import="1">Assets/Maps/Skirmish.lua</File>
+    <File md5="5a5d523d9888f702b82fa19a7a49c2b9" import="1">Assets/Maps/Ice_Age.lua</File>
+    <File md5="c97d61cc5ea3c28ef00a5f3cb9c6c743" import="1">Assets/Maps/Inland_Sea.lua</File>
+    <File md5="b35e13ddf4db64bf866a222bdea8f112" import="1">Assets/Maps/Skirmish.lua</File>
     <File md5="1d78e43069f24547e65a6e17c9601c58" import="0">Lua/AutomatedWarpGate.lua</File>
     <File md5="5d34f865c11832a36d4e6718b47a55b4" import="0">Lua/Mini_Beyond_Earth.lua</File>
     <File md5="31088649bf7502810d3ad6c76f05e702" import="0">Lua/VictoriesAutomatedExodusGate.lua</File>

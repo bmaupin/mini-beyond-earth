@@ -69,29 +69,31 @@ end
 -------------------------------------------------------------------------------
 
 -------------------------------------------------------------------------------
-function GetMapInitData(worldSize)
-	-- This function can reset map grid sizes or world wrap settings.
-	--
-	-- Ice Age simulates polar ice taking over more of the world, so we use a "flatter" grid.
-	local worldsizes = {
-		[GameInfo.Worlds.WORLDSIZE_DUEL.ID] = {12, 8},
-		[GameInfo.Worlds.WORLDSIZE_TINY.ID] = {16, 10},
-		[GameInfo.Worlds.WORLDSIZE_SMALL.ID] = {20, 12},
-		[GameInfo.Worlds.WORLDSIZE_STANDARD.ID] = {24, 16},
-		[GameInfo.Worlds.WORLDSIZE_LARGE.ID] = {32, 20},
-		--[GameInfo.Worlds.WORLDSIZE_HUGE.ID] = {128, 52}
-		}
-	local grid_size = worldsizes[worldSize];
-	--
-	local world = GameInfo.Worlds[worldSize];
-	if(world ~= nil) then
-		return {
-			Width = grid_size[1],
-			Height = grid_size[2],
-			WrapX = true
-		};      
-	end
-end
+-- === BEGIN MOD: Use custom map sizes from database instead of overriding map size ===
+-- function GetMapInitData(worldSize)
+-- 	-- This function can reset map grid sizes or world wrap settings.
+-- 	--
+-- 	-- Ice Age simulates polar ice taking over more of the world, so we use a "flatter" grid.
+-- 	local worldsizes = {
+-- 		[GameInfo.Worlds.WORLDSIZE_DUEL.ID] = {44, 18},
+-- 		[GameInfo.Worlds.WORLDSIZE_TINY.ID] = {56, 24},
+-- 		[GameInfo.Worlds.WORLDSIZE_SMALL.ID] = {70, 30},
+-- 		[GameInfo.Worlds.WORLDSIZE_STANDARD.ID] = {92, 38},
+-- 		[GameInfo.Worlds.WORLDSIZE_LARGE.ID] = {116, 46},
+-- 		--[GameInfo.Worlds.WORLDSIZE_HUGE.ID] = {128, 52}
+-- 		}
+-- 	local grid_size = worldsizes[worldSize];
+-- 	--
+-- 	local world = GameInfo.Worlds[worldSize];
+-- 	if(world ~= nil) then
+-- 		return {
+-- 			Width = grid_size[1],
+-- 			Height = grid_size[2],
+-- 			WrapX = true
+-- 		};
+-- 	end
+-- end
+-- === END MOD ===
 -------------------------------------------------------------------------------
 
 -------------------------------------------------------------------------------
