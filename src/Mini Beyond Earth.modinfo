@@ -37,7 +37,7 @@
     <File md5="c48d317a3c67db7f8ddb96b4372ce145" import="0">SQL/Defines.sql</File>
     <File md5="4b944df98267283f87714750adedb80c" import="0">SQL/GameSpeeds.sql</File>
     <File md5="c11447792e9349302f678630bd62cf73" import="0">SQL/Reactions.sql</File>
-    <File md5="6598c1932021b47578e9b5e6e778ec29" import="0">SQL/Worlds.sql</File>
+    <File md5="bec1fc9f8ea953d684dd381dc64f6c71" import="0">SQL/Worlds.sql</File>
     <File md5="04a1f9031367d59c544b5a162739634a" import="0">XML/Mini_Beyond_Earth.xml</File>
   </Files>
   <Actions>

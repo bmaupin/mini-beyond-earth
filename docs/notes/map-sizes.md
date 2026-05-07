@@ -71,3 +71,61 @@ $ egrep -v "_HELP|_TITLE|_FORMAT|_OPTION|_SCRIPT|_SIZE|_TYPE|_FOLDER" steamasset
     <Row Tag="TXT_KEY_MAP_EQUATORIAL">
       <Text>Equatorial</Text>
 ```
+
+## Map size testing
+
+#### Settings
+
+- Mini Beyond Earth only, no other mods
+- Planet Size: Dwarf (4 players)
+- Random players
+- Difficulty: Vostok
+- All victories unchecked
+- Game Options: Always Peace, Disable Covert Operations, Disable Health, Disable Tutorial Popups, Don't Stagger Starts, No Marvels, Quick Combat, Quick Movement
+- 200 turns auto play
+- Rotate through maps that don't have landmass options
+  - Archipelago
+  - Atlantean
+  - Inland Sea
+  - Protean
+  - Terran
+- Goal, 2-3 cities per faction
+  - So the map should have ~8 cities with room for ~12
+
+#### Results: Rising Tide, 0.3
+
+- 6 cities (1.5 per player), terran
+- 6 cities (1.5 per player), atlantean
+- 6 cities (1.5 per player), atlantean
+
+#### Results: base game, 0.45
+
+- Archipelago
+  - 14, room for 18
+- Atlantean
+  - 11, room for 13
+- Inland Sea
+  - 13, room for 17
+- Protean
+  - 7, room for 10
+- Terran
+  - 8, room for 10
+- average
+  - 10.6, room for 13.6
+  - so we should reduce size ~88% : 12/13.6\*0.45 = 0.397
+
+#### Results: Rising Tide, 0.45
+
+- Archipelago
+  - 12, room for 18
+- Atlantean
+  - 12, room for 16
+- Inland Sea
+  - 14, room for 16
+- Protean
+  - 12, room for 14
+- Terran
+  - 16, room for 19
+- average
+  - 13.2, room for 16.6
+  - so we should reduce size ~72% : 12/16.6\*0.45 = 0.325
