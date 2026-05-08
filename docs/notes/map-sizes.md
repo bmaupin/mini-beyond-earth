@@ -74,6 +74,10 @@ $ egrep -v "_HELP|_TITLE|_FORMAT|_OPTION|_SCRIPT|_SIZE|_TYPE|_FOLDER" steamasset
 
 ## Map size testing
 
+#### Goal
+
+2-3 cities per player
+
 #### Settings
 
 - Mini Beyond Earth only, no other mods
@@ -91,6 +95,7 @@ $ egrep -v "_HELP|_TITLE|_FORMAT|_OPTION|_SCRIPT|_SIZE|_TYPE|_FOLDER" steamasset
   - Terran
 - Goal, 2-3 cities per faction
   - So the map should have ~8 cities with room for ~12
+  - But since we're going by real-world results, let's take the actual cities built and adjust so it's 10 (2.5 per player)
 
 #### Results: Rising Tide, 0.3
 
@@ -112,7 +117,8 @@ $ egrep -v "_HELP|_TITLE|_FORMAT|_OPTION|_SCRIPT|_SIZE|_TYPE|_FOLDER" steamasset
   - 8, room for 10
 - average
   - 10.6, room for 13.6
-  - so we should reduce size ~88% : 12/13.6\*0.45 = 0.397
+  - ~~so we should reduce size ~88% : 12/13.6\*0.45 = 0.397~~
+  - if the goal is 2.5 cities per player : 10/10.6\*0.45 = 0.425
 
 #### Results: Rising Tide, 0.45
 
@@ -128,4 +134,5 @@ $ egrep -v "_HELP|_TITLE|_FORMAT|_OPTION|_SCRIPT|_SIZE|_TYPE|_FOLDER" steamasset
   - 16, room for 19
 - average
   - 13.2, room for 16.6
-  - so we should reduce size ~72% : 12/16.6\*0.45 = 0.325
+  - ~~so we should reduce size ~72% : 12/16.6\*0.45 = 0.325~~
+  - if the goal is 2.5 cities per player : 10/13.2\*0.45 = 0.34

@@ -56,7 +56,7 @@ I don't have time to play a 10-15 hour game of Civilization and short 4X games (
 
 #### Very small maps
 
-Map sizes have been reduced to 9% of their original size (30% of their height and 30% of their width). This alone has the biggest impact on the length of the game. In addition to games being shorter, the game as a whole runs faster as there is less to process (e.g. much less wait time between turns).
+Map sizes have been significantly reduced ([18% of their original size for the base game and 12% in Rising Tide](./src/SQL/Worlds.sql). This alone has the biggest impact on the length of the game. In addition to games being shorter, the game as a whole runs faster as there is less to process (e.g. much less wait time between turns).
 
 #### Show hidden game options
 
@@ -152,7 +152,13 @@ Or:
 
 ## Compatibility with other mods
 
-In addition to making the game much shorter, the goal is for this mod to be compatible with other mods as much as possible. The only game files that have been overridden are the map scripts that have map size hard-coded.
+In addition to making the game much shorter, the goal is for this mod to be compatible with other mods as much as possible. The only game files that have been overridden are the map scripts that have map size hard-coded:
+
+- 82 Eridani e (Vulcan.lua)
+- Glacial (Ice_Age.lua)
+- Inland Sea (Inland_Sea.lua)
+- Mu Arae f (TiltedAxis.lua)
+- Skirmish (Skirmish.lua)
 
 ## Credits
 
