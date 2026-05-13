@@ -101,7 +101,9 @@ The time victory condition can be disabled in the game options.
 
 If a previously-hidden game option is checked, buildings and wonders related to that option are disabled. For example, if health is disabled then buildings and wonders that only give health (e.g. Pharmalab, Soma Distillery) will not show in the list of available buildings to build.
 
-Similarly, if Disable Health is checked, health bonuses and maluses are disabled in the game. In addition, any time the prerequisites for a health-related virtue are met, the player will automatically receive that virtue.
+Similarly, if _Disable Health_ is checked, health bonuses and maluses are disabled in the game; without this the game still calculates health internally which can affect gameplay (e.g. AI faction opinion).
+
+In addition, if _Disable Health_ or _Disable Covert Operations_ are checked, the player will automatically receive virtues relating to the corresponding system once prerequisites are met. This reduces the cognitive overhead of having to mentally filter out virtues that have no impact on the gameplay due to disabled game systems.
 
 ## Known issues
 
@@ -152,7 +154,11 @@ Or:
 
 ## Compatibility with other mods
 
-In addition to making the game much shorter, the goal is for this mod to be compatible with other mods as much as possible. The only game files that have been overridden are the map scripts that have map size hard-coded:
+In addition to making the game much shorter, another primary goal is compatibility with other mods as much as possible.
+
+This goal has influenced much of the design of the mod; in particular, care has been taken not to override game files such as UI files. Because of this constraint, more creative workarounds have been needed to modify the gameplay based on certain game options. For example, there is no way to disable or remove virtues based on game options, so instead if certain game systems are disabled using game options, virtues related to those systems are given for free once their prerequisites are met.
+
+The only game files that have been overridden are the map scripts that have map size hard-coded:
 
 - 82 Eridani e (Vulcan.lua)
 - Glacial (Ice_Age.lua)

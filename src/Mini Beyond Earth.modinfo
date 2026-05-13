@@ -32,7 +32,7 @@
     <File md5="c97d61cc5ea3c28ef00a5f3cb9c6c743" import="1">Assets/Maps/Inland_Sea.lua</File>
     <File md5="b35e13ddf4db64bf866a222bdea8f112" import="1">Assets/Maps/Skirmish.lua</File>
     <File md5="1d78e43069f24547e65a6e17c9601c58" import="0">Lua/AutomatedWarpGate.lua</File>
-    <File md5="deceebf6e2187aaed8f17475d3bcc187" import="0">Lua/Mini_Beyond_Earth.lua</File>
+    <File md5="b13c437ab841fac464be26551d024a9a" import="0">Lua/Mini_Beyond_Earth.lua</File>
     <File md5="31088649bf7502810d3ad6c76f05e702" import="0">Lua/VictoriesAutomatedExodusGate.lua</File>
     <File md5="4b944df98267283f87714750adedb80c" import="0">SQL/GameSpeeds.sql</File>
     <File md5="c11447792e9349302f678630bd62cf73" import="0">SQL/Reactions.sql</File>

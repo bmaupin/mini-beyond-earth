@@ -211,28 +211,58 @@ if (PreGame.GetGameOption("GAMEOPTION_NO_HEALTH") == 1) then
     Events.SequenceGameInitComplete.Add(GiveFreeForesightPolicy);
 end
 
--- If the Disable Health game option is checked, every time a player gets a new policy
--- check to see if they have met the prerequisites for any health-related policy and if
--- so, give it to them for free. This helps avoid the cognitive overhead of having to
--- mentally filter them out. Previously we gave all health-related policies for free at
--- the beginning of the game but then it allows policies depending on them to be unlocked
--- without unlocking all prerequisites, even for the AI players.
-function GiveFreeHealthPolicies(playerID, _policyID)
-    -- There's a player:CanAdoptPolicy method but unfortunately it only returns true if
-    -- policy prerequisites are met AND the player has enough points to get a new policy.
-    -- However we want to give the policy for free, so only check prerequisites.
-    local function PolicyPrereqsMet(playerID, policyID)
-        local player = Players[playerID];
-        for virtuePrereqData in GameInfo.Policy_PrereqORPolicies() do
-            if GameInfo.Policies[virtuePrereqData.PolicyType].ID == policyID then
-                if not player:HasPolicy(GameInfo.Policies[virtuePrereqData.PrereqPolicy].ID) then
-                    return false;
-                end
+-- There's a player:CanAdoptPolicy method but unfortunately it only returns true if
+-- policy prerequisites are met AND the player has enough points to get a new policy.
+-- However we want to give the policy for free, so only check prerequisites.
+local function PolicyPrereqsMet(playerID, policyID)
+    local player = Players[playerID];
+    for virtuePrereqData in GameInfo.Policy_PrereqORPolicies() do
+        if GameInfo.Policies[virtuePrereqData.PolicyType].ID == policyID then
+            if not player:HasPolicy(GameInfo.Policies[virtuePrereqData.PrereqPolicy].ID) then
+                return false;
             end
         end
-        return true;
     end
+    return true;
+end
 
+-- Give free covert-operations-related policies if Disable Covert Operations game option
+-- is checked
+--
+-- See GiveFreeHealthPolicies below for more information
+function GiveFreeCovertOpsPolicies(playerID, _policyID)
+    local player = Players[playerID];
+
+    -- Apply the logic to human and computer players alike
+    if player:IsMajorCiv() and player:IsAlive() then
+        -- Applied Metasociology
+        if (not player:HasPolicy(GameInfo.Policies["POLICY_KNOWLEDGE_7"].ID) and
+            PolicyPrereqsMet(playerID, GameInfo.Policies["POLICY_KNOWLEDGE_7"].ID)) then
+            player:SetHasPolicy(GameInfo.Policies["POLICY_KNOWLEDGE_7"].ID, true);
+        end
+
+        -- Special Service
+        if (not player:HasPolicy(GameInfo.Policies["POLICY_MIGHT_9"].ID) and
+            PolicyPrereqsMet(playerID, GameInfo.Policies["POLICY_MIGHT_9"].ID)) then
+            player:SetHasPolicy(GameInfo.Policies["POLICY_MIGHT_9"].ID, true);
+        end
+    end
+end
+if (PreGame.GetGameOption("GAMEOPTION_NO_COVERT_OPERATIONS") == 1) then
+    -- Only run this each time a player adopts a new policy, in order to run it only when
+    -- needed
+    GameEvents.PlayerAdoptPolicy.Add(GiveFreeCovertOpsPolicies);
+end
+
+-- Give free health-related policies if Disable Health game option is checked
+--
+-- Every time a player gets a new policy check to see if they have met the prerequisites
+-- for any health-related policy and if so, give it to them for free. This helps avoid the
+-- cognitive overhead of having to mentally filter them out. Previously we gave all
+-- health-related policies for free at the beginning of the game but then it allows
+-- policies depending on them to be unlocked without unlocking all prerequisites, even for
+-- the AI players.
+function GiveFreeHealthPolicies(playerID, _policyID)
     local player = Players[playerID];
 
     -- Apply the logic to human and computer players alike
