@@ -56,7 +56,7 @@ I don't have time to play a 10-15 hour game of Civilization and short 4X games (
 
 #### Very small maps
 
-Map sizes have been significantly reduced ([18% of their original size for the base game and 12% in Rising Tide](./src/SQL/Worlds.sql). This alone has the biggest impact on the length of the game. In addition to games being shorter, the game as a whole runs faster as there is less to process (e.g. much less wait time between turns).
+Map sizes have been significantly reduced ([20% of their original size for the base game and 16% in Rising Tide](./src/SQL/Worlds.sql). This alone has the biggest impact on the length of the game. In addition to games being shorter, the game as a whole runs faster as there is less to process (e.g. much less wait time between turns).
 
 #### Show hidden game options
 

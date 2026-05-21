@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Mod id="9412c9bf-a7b2-481e-b42e-431f06aac221" version="15">
+<Mod id="9412c9bf-a7b2-481e-b42e-431f06aac221" version="16">
   <Properties>
     <Name>Mini Beyond Earth</Name>
-    <Stability>Alpha</Stability>
+    <Stability>Beta</Stability>
     <Teaser>Play Beyond Earth with tiny maps</Teaser>
     <Description>Play Beyond Earth with extremely small maps and additional game options for much shorter games.</Description>
     <Authors>bmaupin</Authors>
@@ -36,7 +36,7 @@
     <File md5="31088649bf7502810d3ad6c76f05e702" import="0">Lua/VictoriesAutomatedExodusGate.lua</File>
     <File md5="4b944df98267283f87714750adedb80c" import="0">SQL/GameSpeeds.sql</File>
     <File md5="c11447792e9349302f678630bd62cf73" import="0">SQL/Reactions.sql</File>
-    <File md5="adae10d473a612e0eb1695078d67acbf" import="0">SQL/Worlds.sql</File>
+    <File md5="8322913993a49c4892f293aec4328393" import="0">SQL/Worlds.sql</File>
     <File md5="04a1f9031367d59c544b5a162739634a" import="0">XML/Mini_Beyond_Earth.xml</File>
   </Files>
   <Actions>

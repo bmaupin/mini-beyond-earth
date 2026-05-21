@@ -117,8 +117,9 @@ $ egrep -v "_HELP|_TITLE|_FORMAT|_OPTION|_SCRIPT|_SIZE|_TYPE|_FOLDER" steamasset
   - 8, room for 10
 - average
   - 10.6, room for 13.6
-  - ~~so we should reduce size ~88% : 12/13.6\*0.45 = 0.397~~
-  - if the goal is 2.5 cities per player : 10/10.6\*0.45 = 0.425
+- adjusted size
+  - if the goal is 2.5 cities per player : √(10/10.6)\*0.45 = 0.437
+  - we'll keep it at 0.45
 
 #### Results: Rising Tide, 0.45
 
@@ -134,5 +135,6 @@ $ egrep -v "_HELP|_TITLE|_FORMAT|_OPTION|_SCRIPT|_SIZE|_TYPE|_FOLDER" steamasset
   - 16, room for 19
 - average
   - 13.2, room for 16.6
-  - ~~so we should reduce size ~72% : 12/16.6\*0.45 = 0.325~~
-  - if the goal is 2.5 cities per player : 10/13.2\*0.45 = 0.34
+- adjusted size
+  - if the goal is 2.5 cities per player : √(10/13.2)\*0.45 = 0.39
+  - we'll round up to 0.4
