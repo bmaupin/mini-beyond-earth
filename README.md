@@ -20,10 +20,6 @@ Install the mod from Steam here or see below for manual installation instruction
 <img src="steam-store-badge.webp" alt="Available on Steam" width="200px">
 </a>
 
-## Motivation
-
-I don't have time to play a 10-15 hour game of Civilization and short 4X games (Battle of Polytopia) feel too shallow to be interesting. So I made this to try to retain the feel of a Civ game but with a much shorter playtime.
-
 ## Usage
 
 1. Start Beyond Earth and go to the _Mods_ menu
@@ -68,13 +64,9 @@ The game comes with a handful of options that are hidden by default. They've bee
   - This effectively disables diplomacy altogether
 - Disable Health
   - Health as a mechanic was added to Civ to prevent "infinite city sprawl" which really isn't an issue with this mod, so it makes more sense to disable it altogether
-- Disable Research
-  - This disables the ability to research any technology and doesn't seem particularly useful
 - Disable Tutorial Popups
 - Disable Virtues
   - This is one less system to worry about, although it's possible it could make the game actually take longer since it would remove many bonuses that could result in faster play
-- Lock Mods
-- Permanent War or Peace
 
 #### New game options
 
