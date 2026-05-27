@@ -207,7 +207,7 @@ function GiveFreeForesightPolicy()
     end
 end
 if (PreGame.GetGameOption("GAMEOPTION_NO_HEALTH") == 1) then
-    -- Run this once at the start of the game
+    -- Run this once at the start of the game or when the game is loaded
     Events.SequenceGameInitComplete.Add(GiveFreeForesightPolicy);
 end
 
@@ -414,8 +414,56 @@ if (PreGame.GetGameOption("GAMEOPTION_AUTO_UPGRADE_UNITS") == 1) then
     GameEvents.PlayerDoTurn.Add(AutoUpgradeUnits);
 end
 
--- Uncomment as needed for testing
+-- Add strategic resources to the map
+--
+-- Since the maps are so small, strategic resources tend to be very low. The base game
+-- isn't so bad but in Rising Tide there could be only 2 tiles with each of the affinity
+-- resources. But this makes the gameplay less interesting because it means fewer or even
+-- no resources for affinity-specific units, satellites needed for victory conditions,
+-- etc.
+local function AddStrategicResources()
+    -- Only run this once at the start of the game
+    if Game.GetGameTurn() ~= 0 then
+        return;
+    end
+
+    -- Add strategic resources based on the number of civs in the game
+    for playerID = 0, GameDefines.MAX_MAJOR_CIVS - 1 do
+        local player = Players[playerID];
+        -- Not sure who player 62 and 63 are; maybe aliens and stations?
+        if player ~= nil and player:IsEverAlive() and playerID ~= 62 and playerID ~= 63 then
+            for resource in GameInfo.Resources("ResourceClassType = 'RESOURCECLASS_STRATEGIC'") do
+                -- Don't add geothermal; it's not required for any affinity units or victories
+                if resource.Type ~= "RESOURCE_GEOTHERMAL_ENERGY" then
+                    local numResourcesToAdd = 2;
+                    local resourceAmount = Game.RandRange(2, 10, "Picking amount of strategic resources");
+
+                    local addedResources = 0;
+                    while addedResources < numResourcesToAdd do
+                        local randomPlotIndex = Game.Rand(Map.GetNumPlots(), "Random plot index");
+                        local plot = Map.GetPlotByIndex(randomPlotIndex);
+                        -- Don't overwrite existing resources and check plot resource restrictions
+                        if plot:GetResourceType(-1) == -1 and plot:CanHaveResource(resource.ID) then
+                            print("(Mini Beyond Earth) Adding " .. tostring(resourceAmount) .. " of " .. resource.Type .. " to plot " .. tostring(randomPlotIndex));
+                            plot:SetResourceType(resource.ID, resourceAmount);
+                            addedResources = addedResources + 1;
+                        end
+                    end
+
+                end
+            end
+        end
+    end
+end
+-- Run this once at the start of the game or when the game is loaded
+Events.SequenceGameInitComplete.Add(AddStrategicResources);
+
+-- -- Uncomment as needed for testing
 -- local function AutoPlay()
+--     if Game.GetGameTurn() ~= 0 then
+--         return;
+--     end
+
 --     local function GetTotalCityCount()
 --         local totalCities = 0;
 
@@ -432,7 +480,7 @@ end
 --     local function PrintNumberOfCities()
 --         if (Game.GetAIAutoPlay() == 0) then
 --             local totalCities = GetTotalCityCount();
---             print("********************* City founded. Total cities:" .. tostring(totalCities) .. " turn:" .. tostring(Game.GetGameTurn()));
+--             print("********************* City founded. Total cities: " .. tostring(totalCities) .. " turn: " .. tostring(Game.GetGameTurn()));
 
 --             GameEvents.PlayerDoTurn.Remove(PrintNumberOfCities);
 --         end
@@ -443,5 +491,5 @@ end
 --     -- First parameter is number of turns to autoplay, second is player to return control to (or -1 for none)
 --     Game.SetAIAutoPlay(200, 0);
 -- end
--- -- Run this once at the start of the game
+-- -- Run this once at the start of the game or when the game is loaded
 -- Events.SequenceGameInitComplete.Add(AutoPlay);

@@ -115,7 +115,6 @@ Because the map sizes are so drastically reduced, games will be very different. 
 - Artifacts
 - Marvels
 - Stations
-- Strategic resources
 
 If you wish to improve your chances of these systems being in the game, try playing on a larger map with fewer civs.
 
