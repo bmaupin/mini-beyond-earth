@@ -16,7 +16,7 @@ SET
       THEN MAX(8, ROUND(GridHeight * 0.45) - 1)
     ELSE MAX(8, ROUND(GridHeight * 0.45))
   END
-WHERE NOT EXISTS (SELECT Description FROM Civilizations WHERE Type = 'CIVILIZATION_CHUNGSU');
+WHERE NOT EXISTS (SELECT * FROM DownloadableContent WHERE PackageID = "54D2B257C59140458F17A69F033166C7" AND IsActive = 1);
 
 -- Rising Tide
 --
@@ -33,4 +33,4 @@ SET
       THEN MAX(8, ROUND(GridHeight * 0.4) - 1)
     ELSE MAX(8, ROUND(GridHeight * 0.4))
   END
-WHERE EXISTS (SELECT Description FROM Civilizations WHERE Type = 'CIVILIZATION_CHUNGSU');
+WHERE EXISTS (SELECT * FROM DownloadableContent WHERE PackageID = "54D2B257C59140458F17A69F033166C7" AND IsActive = 1);

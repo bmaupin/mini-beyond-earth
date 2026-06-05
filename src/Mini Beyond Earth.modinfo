@@ -35,8 +35,8 @@
     <File md5="ea99b0d8a3fd79ecf3ba21c3f9642d83" import="0">Lua/Mini_Beyond_Earth.lua</File>
     <File md5="31088649bf7502810d3ad6c76f05e702" import="0">Lua/VictoriesAutomatedExodusGate.lua</File>
     <File md5="4b944df98267283f87714750adedb80c" import="0">SQL/GameSpeeds.sql</File>
-    <File md5="c11447792e9349302f678630bd62cf73" import="0">SQL/Reactions.sql</File>
-    <File md5="8322913993a49c4892f293aec4328393" import="0">SQL/Worlds.sql</File>
+    <File md5="a7b26c41e5a5e7991eb2384ee106a8a5" import="0">SQL/Reactions.sql</File>
+    <File md5="890133a7e37cb6f11780e45b31716b90" import="0">SQL/Worlds.sql</File>
     <File md5="04a1f9031367d59c544b5a162739634a" import="0">XML/Mini_Beyond_Earth.xml</File>
   </Files>
   <Actions>
